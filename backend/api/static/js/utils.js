@@ -4,7 +4,7 @@ async function apiFetch(url,method="GET",body=null,headers={}){
         const config = {
             method,
             headers:{
-                "Content- Type": 'application/json',
+                "Content-Type": 'application/json',
                 ...headers
             },
 
@@ -27,5 +27,3 @@ async function apiFetch(url,method="GET",body=null,headers={}){
 
 
 }
-
-alert("wadadd")

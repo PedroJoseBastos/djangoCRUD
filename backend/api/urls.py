@@ -1,17 +1,18 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
 from api.views.apiViews import *
 from api.views.webViews import *
 
-router = DefaultRouter()
+# router = DefaultRouter()
 # router.register('funcionarios', FuncionarioViewSet)
 # router.register('produtos', ProdutoViewSet)
 # router.register('categorias', CategoriaViewSet)
-router.register('user', UserViewSet)
+# router.register('user', UserViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path('api/login', Login.as_view(), name="loginAPI"),
+    # path('api/', include(router.urls)),
+    path( 'api/User/', User.as_view(),name="usuarios"),
+    path('api/User/<int:id>', User.as_view(),name="usuararioDetalhe"),
+    path('api/login/', Login.as_view(), name="loginAPI"),
     path('home/', home, name="home"),
     path('login/',login, name="login"),
     path('criarAluno/', criarAluno, name="criarAluno"),
