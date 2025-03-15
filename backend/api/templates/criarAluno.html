@@ -1,4 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
+
+{% block content %}
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,10 +13,20 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="POST" id='alunoForm' >
-        <input type="text" placeholder="Nome" id='nome'>
-        <input type="email" placeholder="Email" id='email'>
-        <button type="submit">Cadastrar</button>
+    
+
+    <form id='alunoForm' >
+        {% csrf_token %}
+        <input type="text" placeholder="nome" id='nome' value={%if aluno%}{{aluno.username}}{%endif%} >
+        <input type="password" placeholder="senha" id='senha'value{%if aluno%} {{aluno.password}} {%endif%}>
+        <button type="submit">
+            {% if  aluno %}
+                Atualizar 
+            {%else%}
+                Cadastrar
+            {%endif%}
+             
+        </button>
     </form>
 
     <div class="msgErro" id="msg">
@@ -21,3 +36,5 @@
     <script src="{% static 'js/cadastrar.js' %}"></script>
 </body>
 </html>
+
+{% endblock %}

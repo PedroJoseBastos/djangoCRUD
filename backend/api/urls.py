@@ -10,12 +10,13 @@ from api.views.webViews import *
 
 urlpatterns = [
     # path('api/', include(router.urls)),
-    path( 'api/User/', User.as_view(),name="usuarios"),
-    path('api/User/<int:id>', User.as_view(),name="usuararioDetalhe"),
+    path( 'api/user', User.as_view(),name="usuarios"),
+    path('api/user/<int:id>', User.as_view(),name="usuararioDetalhe"),
     path('api/login/', Login.as_view(), name="loginAPI"),
     path('home/', home, name="home"),
     path('login/',login, name="login"),
     path('criarAluno/', criarAluno, name="criarAluno"),
+    path('criarAluno/<int:id>', criarAluno, name="criarAlunoEdicao"),
     # path('funcionarios/', listarFuncionarios, name='listarFuncionarios'),
     # path('funcionarios/cadastrar', cadastrarFuncionario, name='cadastrarFuncionario'),
     # path('funcionarios/<int:id>', obterFuncionario, name='obterFuncionario'),
